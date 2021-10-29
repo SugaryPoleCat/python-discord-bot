@@ -2,7 +2,7 @@ import discord
 from decouple import config
 import requests
 import random
-from .hello import get_hello
+from .hello import Hello
 
 DEV_TOKEN = config('DEV_TOKEN')
 
@@ -35,7 +35,7 @@ class MyClient(discord.Client):
             print("user was a bot")
             return
         if message.content.startswith('!hello'):
-            await get_hello(message)
+            await Hello.get_hello(message)
 
         if message.content.startswith('!quote'):
             # quote = get_quote()
